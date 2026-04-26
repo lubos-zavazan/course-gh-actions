@@ -9,7 +9,7 @@ on:
   schedule:
     - cron: "*/5 * * * *" 
   workflow_dispatch:
-    
+
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -21,6 +21,9 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
+
+      - name: Log event type
+        run: echo "This run was triggered by ${{ github.event_name }}"
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
