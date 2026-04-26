@@ -5,10 +5,10 @@ name: test2
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
-  push:
+  # push:
   # schedule:
   #  - cron: "*/6 * * * *" 
-  workflow_dispatch:
+  workflow_dispatch: # manually trigger a workflow run
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
