@@ -19,4 +19,10 @@ jobs:
         with:
           go-version: '1.22'
       - run: go version
-         
+      - run: |
+        ls -la
+        go build
+        ls -la
+        go test -v
+
+  
