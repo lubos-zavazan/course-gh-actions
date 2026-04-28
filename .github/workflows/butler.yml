@@ -14,7 +14,6 @@ jobs:
   #     - run: echo 'comment ${{ github.event.comment.body }}'
   #     - run: echo '${{ toJson(github.event) }}'
   chat:
-    if: contains(github.event.comment.body, '/chat')
     runs-on: ubuntu-latest
     steps:
       - uses: ca-dp/code-butler@v1
