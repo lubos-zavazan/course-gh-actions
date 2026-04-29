@@ -21,6 +21,15 @@ jobs:
         working-directory: ./upper
       - name: test it
         run: docker container run upper hello wes
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }} # lubos-zavazan
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - run: docker tag upper ghcr.io/lubos-zavazan/upper:latest
+      - run: docker tag upper ghcr.io/lubos-zavazan/upper:${{ github.ref_name }}
+      - run: docker push ghcr.io/lubos-zavazan/upper:latest
+      - run: docker push ghcr.io/lubos-zavazan/upper:${{ github.ref_name }}
 
 
-        
+
