@@ -38,3 +38,4 @@ jobs:
           app-name: gh-actions-web-api
           images: weshigbee/actions-web:latest
           resource-group-name: gh-actions
+          
