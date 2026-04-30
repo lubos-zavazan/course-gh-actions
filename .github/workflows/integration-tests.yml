@@ -31,10 +31,10 @@ jobs:
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
     steps:
       - run: |
-          echo "Hostname is: $HOSTNAME"
+          env | sort
           echo "${{ needs.generate.outputs.RANDOM_PASSWORD }}"
       - run: |
-          echo "Hostname is: $HOSTNAME"
+          env | sort
           mysql --version
       - run: mysql -h mysqlserver -u root -p${{ needs.generate.outputs.RANDOM_PASSWORD }} -e "SHOW DATABASES;"
       - run: echo "job.services= ${{ toJson(job.services)}}"
