@@ -30,12 +30,16 @@ jobs:
           MYSQL_DATABASE: foothebar
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
     steps:
-      - run: echo "${{ needs.generate.outputs.RANDOM_PASSWORD }}"
-      - run: mysql --version
+      - run: |
+          hostname
+          echo "${{ needs.generate.outputs.RANDOM_PASSWORD }}"
+      - run: |
+          hostname
+          mysql --version
       - run: mysql -h mysqlserver -u root -p${{ needs.generate.outputs.RANDOM_PASSWORD }} -e "SHOW DATABASES;"
       - run: echo "job.services= ${{ toJson(job.services)}}"
       - run: echo "job.container= ${{ toJson(job.container)}}"
 
 
-      
+
 
